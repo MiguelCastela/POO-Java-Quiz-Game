@@ -19,6 +19,23 @@ on a scoreboard.
 - Scoring with persistence: results are saved to per-game `.dat` files and can
   be reloaded for the scoreboard.
 
+## Class design
+
+![Final UML class diagram](docs/images/uml-final.png)
+
+The delivered design. `Question` is the polymorphic core: `Football`, `Swimming`,
+`Science`, `Ski` and `Art` each extend it and override `modeSetUp` to build their
+own options, so `POOaoTrivia` draws questions without knowing the topic.
+`FileManager` isolates all file access (the question bank and the saved `.dat`
+games) and `UiWindow` holds the entire Swing layer.
+
+![Initial UML class diagram](docs/images/uml-initial.png)
+
+The design as first sketched, for comparison. The topic hierarchy went through a
+`Desporto` intermediate class, and the file and UI responsibilities had not been
+separated out yet. Both diagrams come from
+[`docs/uml-inicial-e-final.pdf`](docs/uml-inicial-e-final.pdf).
+
 ## Repository structure
 
 ```
